@@ -1,2 +1,2 @@
-FROM ghcr.io/pixelfed-glitch/pixelfed:apache-0.11.13-glitch.1.3.0
+FROM ghcr.io/pixelfed-glitch/pixelfed:apache-8.4-0.12.5-glitch.1.10.1
 
