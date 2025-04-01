@@ -1,30 +1,30 @@
 {
   "crons": [
-	{
-		"command": "php artisan schedule:run",
-		"schedule": "* * * * * *"
-	}
+    {
+      "command": "php artisan schedule:run",
+      "schedule": "* * * * * *"
+    }
   ],
   "healthchecks": {
     "web": [
-		{
-			"type":        "startup",
-			"name":        "web check",
-			"description": "API Health Check",
-			"path":        "/api/service/health-check",
-			"attempts": 3,
-			"timeout": 5
-		}
+      {
+        "type": "startup",
+        "name": "web check",
+        "description": "API Health Check",
+        "path": "/api/service/health-check",
+        "attempts": 3,
+        "timeout": 5
+      }
     ],
     "worker": [
-	    {
-		    "type": "liveness",
-		    "name": "worker running",
-		    "description": "Horizon Health Check",
-		    "command": "gosu www-data php artisan horizon:status | grep running",
-		    "timeout": 5,
-		    "attempts": 3,
-	    }
+      {
+        "type": "liveness",
+        "name": "worker running",
+        "description": "Horizon Health Check",
+        "command": ["gosu www-data php artisan horizon:status | grep running"],
+        "timeout": 5,
+        "attempts": 3
+      }
     ]
   }
 }
