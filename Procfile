@@ -1,2 +1,2 @@
 web: apache2-foreground
-worker: ENTRYPOINT_SKIP=1 php artisan horizon
+worker: env ENTRYPOINT_SKIP=1 php artisan horizon
